@@ -1,27 +1,21 @@
-def quick_sort(arr):
-    if len(arr) <=1:
-        return arr
-    
-    pivot = arr[0]
+def partition(arr, skizb , verj):
+    pivot = arr[verj]
+    i = skizb - 1
 
-    left = []
-    right = []
-    equal = []
+    for j in range(skizb,verj):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
 
-    for x in arr:
-        if x < pivot:
-            left.append(x)
-        elif x > pivot:
-            right.append(x)
-        else:
-            equal.append(x)
+    arr[i + 1], arr[verj] = arr[verj], arr[i+1]
+    return i+1
 
-    sorted_left = quick_sort(left)
-    sorted_right = quick_sort(right)
+def quick_sort(arr, skizb,verj):
+    if skizb< verj:
+        p = partition(arr, skizb, verj)
+        quick_sort(arr,skizb, p-1)
+        quick_sort(arr, p+1, verj)
 
-    return sorted_left + equal + sorted_right
-
-arr = [78,14,25,36,16]
-
-print("arr=", arr)
-print("nor", quick_sort(arr))
+arr = [14,25,87,6,98,2]
+quick_sort(arr, 0, len(arr)-1)
+print("arr=",arr)

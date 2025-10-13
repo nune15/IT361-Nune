@@ -19,3 +19,4 @@ def quick_sort(arr, skizb,verj):
 arr = [14,25,87,6,98,2]
 quick_sort(arr, 0, len(arr)-1)
 print("arr=",arr)
+

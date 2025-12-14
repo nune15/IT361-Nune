@@ -6,9 +6,7 @@ def topological_sort(graph):
 
     queue = [v for v in graph if indegree[v] == 0]
 
-    order = []   # result
-
-    # --- BFS process ---
+    order = []
     while queue:
         v = queue.pop(0)
         order.append(v)

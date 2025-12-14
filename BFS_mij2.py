@@ -11,10 +11,14 @@ def bfs(start):
     queue = [start]
     
     while queue:
-        n = start.pop(0)
+        n = queue.pop(0)
         if n not in visited:
-            print(n, end="")
+            print(n, end=" ")
             visited.add(n)
+            
             for n1 in graph[n]:
-                queue.append(n1)
+                if n1 not in visited:
+                    queue.append(n1)
+
 bfs('A')
+
